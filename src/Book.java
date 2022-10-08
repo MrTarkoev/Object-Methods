@@ -28,12 +28,16 @@ public class Book {
     @Override
     public boolean equals(Object other){
         Book otherBook = (Book) other;
-        if (this.getClass() != other.getClass()) {
+        if (other == this) {
+            return  true;
+        }
+        if (other == null || this.getClass()!= other.getClass()) {
             return false;
-        } else if (this.author.hashCode() != otherBook.getAuthor().hashCode()) {
+        }
+        if (this.author.hashCode() != otherBook.getAuthor().hashCode()) {
             return false;
         } else {
-            if (this.name == otherBook.getName()&&this.author.equals(otherBook.getAuthor())&&
+            if (this.name == otherBook.getName() && this.author.equals(otherBook.getAuthor()) &&
                     this.year == otherBook.getYear()) {
                 return true;
             } else {
